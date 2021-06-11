@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * Write a description of class LnkedList here.
+ *Double Linked List structure made to contain nodes
  *
  * @author Max Halpern
  * @version 5/25
@@ -33,7 +33,6 @@ public class LnkedList<T> implements ILnkedList<T>
             tmp.setNext(tmp);
             tmp.setPrev(tmp);
             start = tmp;
-
         }
         else if(getSize() ==1){
             tmp.setNext(start);
@@ -41,21 +40,14 @@ public class LnkedList<T> implements ILnkedList<T>
             tail.setNext(tmp);
             tail.setPrev(tail);
             start.setPrev(tmp);
-            
-            
-
         }
         else {
             tail.setPrev(start);
             tmp.setNext(start);
             tmp.setPrev(tail);
             tail.setNext(tmp);
-           
-            
         }
         tail = tmp;
-      
-        
         size += 1;
     }
 
@@ -69,26 +61,20 @@ public class LnkedList<T> implements ILnkedList<T>
         if( index < 0 && index >= getSize()) {
             throw new IndexOutOfBoundsException("invalid index: " + index);
         }
-        
         else if(index == 0) {
             addToHead(data);
         }
-        
         else if(index == getSize() -1) {
             add(data);
         }
-        
         else {
             var newNode = new Node(data);
-    
             var currentNode = getNodeAtIndex(index);
             var previousNode = getNodeAtIndex(index-1);
-            
             previousNode.setNext(newNode);
             newNode.setPrev(previousNode);
             newNode.setNext(currentNode);
             currentNode.setPrev(newNode);
-    
             size += 1;   
         }
     }
@@ -144,13 +130,10 @@ public class LnkedList<T> implements ILnkedList<T>
             while(count < index) {
                 tmp = tmp.getNext();
                 count += 1;
-               
             }
             tmp.setData(data);
-            
         }
         size += 1;
-        
     }
 
     
@@ -223,8 +206,7 @@ public class LnkedList<T> implements ILnkedList<T>
     /**
      * Remove the first Node in the list.
      * @return The data of the first node.
-     */
-    
+     */    
     @Override
     public T removeFirst() {
         var tmp = start;
@@ -299,15 +281,18 @@ public class LnkedList<T> implements ILnkedList<T>
         boolean result = false;
         if(obj != null) {
             var list = (LnkedList<T>) obj;
-            System.out.println("TESTRUN START");
+           //check to see this list size is the same as obj list size
+           //if not equal, return false
             if(this.getSize() != list.getSize()) {
                 return result;
             }
         }
+        //if lists are same size, check each node for equality
         LnkedList<T> list = (LnkedList<T>) obj;
         for(int i = 0; i < this.getSize(); i ++){
                 var currentNode = this.getNodeAtIndex(i);
-                var compareNode = list.getNodeAtIndex(i);                
+                var compareNode = list.getNodeAtIndex(i);
+                    //use Node class overridden equals method to test equality of nodes
                     if(currentNode.equals(compareNode)) {
                         result = true;
                         System.out.println("Nodes " + currentNode.getData() + "&" + compareNode.getData()+ " were a match");
@@ -315,11 +300,8 @@ public class LnkedList<T> implements ILnkedList<T>
                     else {
                         result = false;
                         return result;
-                        
                 }
-        
             }
-        
         if(result == true) {
             System.out.println("Yay all nodes were a match");
         }
@@ -327,13 +309,15 @@ public class LnkedList<T> implements ILnkedList<T>
             System.out.println("Sorry they were not all matches");
         }
         return result;
-        
     }
 
-    
+    /**
+    *Check the list to see if a node is contained inside of it.
+    *@param data The data to compare against each list in the node.
+    *@return True or False if data is inside of list.
+    **/
     @Override
-    public boolean contains(T data) {
-        
+    public boolean contains(T data) {        
         for(int i = 0; i < size; i++) {
             T compareData = getDataAtIndex(i);
             if(compareData.equals(data)) {
@@ -347,7 +331,11 @@ public class LnkedList<T> implements ILnkedList<T>
         return false;
     }
     
-    @Override
+    /**
+    *to string method to show the list
+    *@return The string representation of the list.
+    **/
+     @Override
     public String toString() {
         var sb = new StringBuilder("[");
         
