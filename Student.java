@@ -2,9 +2,9 @@
 /**
  * Write a description of class Student here.
  *
- * @author (your name)
- * @version (a version number or a date)
- *  a simple Person class (first name, last name, ID number (String: 9 digits). Check that ID is valid, throw a checked exception if not.
+ * @author Max H
+ * @version 6/11
+ *  a simple Person class (first name, last name, ID number (String: 9 digits). Check that ID is valid.
 
  */
 public class Student
