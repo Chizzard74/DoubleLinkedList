@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * Write a description of class Main here.
+ * Main program for driving the list.
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -18,6 +18,7 @@ public class Main
         Student s4 = new Student("Example","Inserted","Example");
         var ioLink = new LnkedList<Integer>();
        
+        //take user input and multiply it by 3
         var scan = new Scanner(System.in);
         System.out.print("Enter a number");
         try{
@@ -27,6 +28,7 @@ public class Main
             ioLink.add(i * 3);
         }
         }
+        //if non int is input, throw illegal argument
         catch(Exception e) {
             throw new IllegalArgumentException("Please enter a number");
         }
