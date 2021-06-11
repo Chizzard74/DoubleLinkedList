@@ -2,8 +2,8 @@ import java.util.Scanner;
 /**
  * Main program for driving the list.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Max H
+ * @version 6/11
  */
 public class Main
 {
