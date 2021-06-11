@@ -8,8 +8,8 @@ import org.junit.Test;
 /**
  * The test class NodeTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  Max H
+ * @version 6/11
  */
 public class NodeTest
 {
