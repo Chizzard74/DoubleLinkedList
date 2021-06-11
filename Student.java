@@ -1,10 +1,10 @@
 
 /**
- * Write a description of class Student here.
+ * A simple Person class (first name, last name, ID number (String: 9 digits). Check that ID is valid.
  *
  * @author Max H
  * @version 6/11
- *  a simple Person class (first name, last name, ID number (String: 9 digits). Check that ID is valid.
+ *  
 
  */
 public class Student
